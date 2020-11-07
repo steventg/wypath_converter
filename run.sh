@@ -2,7 +2,7 @@
 set -e
 
 DEST_DIR="dest_pano"
-
+VIEWER_HTML="viewer.html"
 mkdir -p ${DEST_DIR}
 
 pushd freepv-0.3.0
@@ -11,6 +11,10 @@ rm -f Makefile
 cmake .
 make
 pushd
+
+cat > ${VIEWER_HTML} <<EOF
+<html><body>
+EOF
 
 for src in source_qtvr/*.mov; do
   echo $src
@@ -44,4 +48,13 @@ for src in source_qtvr/*.mov; do
   	-ProjectionType=cylindrical \
   	-overwrite_original \
   	${jpgFile}
+
+  cat >> ${VIEWER_HTML} <<EOF
+    <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https%3A//steventg.github.io/wypath_converter/dest_pano/${jpgFile}"></iframe>
+EOF
+
 done
+
+cat >> ${VIEWER_HTML} <<EOF
+</body><html>
+EOF
