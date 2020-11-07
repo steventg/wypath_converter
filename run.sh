@@ -2,7 +2,7 @@
 set -e
 
 DEST_DIR="dest_pano"
-VIEWER_HTML="viewer.html"
+VIEWER_HTML="index.html"
 mkdir -p ${DEST_DIR}
 
 pushd freepv-0.3.0
