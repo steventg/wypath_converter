@@ -50,7 +50,7 @@ for src in source_qtvr/*.mov; do
   	${jpgFile}
 
   cat >> ${VIEWER_HTML} <<EOF
-    <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https%3A//steventg.github.io/wypath_converter/dest_pano/${jpgFile}"></iframe>
+    <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https%3A//steventg.github.io/wypath_converter/dest_pano/${jpgFile}&autoLoad=true"></iframe>
 EOF
 
 done
