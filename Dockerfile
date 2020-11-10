@@ -18,4 +18,4 @@ RUN apt-get update && apt-get install -y \
  bc 
 
 WORKDIR /codes
-ENTRYPOINT /codes/run.sh
+ENTRYPOINT ./run.sh
